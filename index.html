@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Art of Mind Control</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#0f2027;
+  color:white;
+}
+
+/* ---------- TOP LOGOS ---------- */
+.top-bar{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
+}
+
+.top-bar img{
+  height:45px;
+}
+
+@media(max-width:600px){
+  .top-bar img{
+    height:35px;
+  }
+}
+
+/* ---------- HERO ---------- */
+/* .hero{
+  min-height:95vh;
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:90px 20px 60px;
+} */
+
+.hero{
+  min-height:95vh;
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.65),
+      rgba(0,0,0,0.65)
+    ),
+    url("poster.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:90px 20px 60px;
+}
+
+
+.poster-title{
+  font-size:clamp(2.6rem,6vw,4rem);
+  letter-spacing:2px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.poster-sub{
+  margin-top:15px;
+  font-size:1.1rem;
+  opacity:0.85;
+  max-width:750px;
+  margin:auto;
+}
+
+/* ---------- URGENCY ---------- */
+.urgency{
+  margin-top:18px;
+  font-weight:bold;
+  color:#ff5252;
+  letter-spacing:1px;
+}
+
+/* ---------- BUTTON ---------- */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 34px;
+  background:#00e0ff;
+  color:#000;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.07);
+  background:#00bcd4;
+}
+
+/* ---------- TIMER ---------- */
+.timer{
+  margin-top:22px;
+  font-size:1.4rem;
+  color:#ffeb3b;
+}
+
+/* ---------- SECTION ---------- */
+section{
+  padding:70px 20px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.3rem;
+  margin-bottom:45px;
+  color:#00e0ff;
+}
+
+/* ---------- GRID ---------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  max-width:1100px;
+  margin:auto;
+}
+
+/* ---------- CARD (Learn How To) ---------- */
+.card{
+  background:#1e2f38;
+  padding:28px;
+  border-radius:14px;
+  transition:0.35s ease;
+}
+
+.card:hover{
+  transform:translateY(-12px);
+  background:#263f4d;
+  box-shadow:0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* ---------- SPEAKER ---------- */
+.speaker{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:35px;
+  max-width:1000px;
+  margin:auto;
+  align-items:center;
+}
+
+.speaker img{
+  width:100%;
+  border-radius:16px;
+}
+
+@media(max-width:768px){
+  .speaker{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+
+/* ---------- EVENT DETAILS ---------- */
+.details-grid{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:25px;
+  text-align:center;
+}
+
+.detail-box{
+  background:#1e2f38;
+  padding:25px;
+  border-radius:14px;
+  transition:0.35s ease;
+  cursor:pointer;
+}
+
+.detail-box h4{
+  color:#00e0ff;
+  margin-bottom:10px;
+}
+
+/* 🔥 HOVER FOR EVENT DETAILS */
+.detail-box:hover{
+  transform:translateY(-12px) scale(1.02);
+  background:#263f4d;
+  box-shadow:0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* ---------- CONTACT ---------- */
+.contact{
+  text-align:center;
+  font-size:1rem;
+  opacity:0.85;
+}
+
+.trademark{
+  text-align:center;
+  margin-top:25px;
+  font-size:0.85rem;
+  opacity:0.6;
+}
+
+/* ---------- SCROLL ANIMATION ---------- */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ---------- WHATSAPP ---------- */
+.whatsapp-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:55px;
+  height:55px;
+  background:#25D366;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  text-decoration:none;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  z-index:1000;
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP LOGOS -->
+<div class="top-bar">
+  <img src="folk.png" alt="Logo 1">
+  <img src="hkgk.png" alt="Logo 2">
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="reveal">
+    <div class="poster-title">Art of Mind Control</div>
+
+    <div class="poster-sub">
+      A Special Lecture by a Senior Software Industry Professional on
+      mental discipline, focus, and inner mastery.
+    </div>
+
+    <div class="urgency">⚠ LIMITED SEATS AVAILABLE</div>
+
+    <a href="https://forms.gle/MSyNmmwnCjszVXyi7"
+       target="_blank"
+       class="btn">
+      Register Now
+    </a>
+
+    <div id="timer" class="timer"></div>
+  </div>
+</div>
+
+<!-- LEARN HOW TO -->
+<section class="reveal">
+  <div class="section-title">What You Will Learn</div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Laser Focus</h3>
+      <p>Eliminate distractions and sharpen attention.</p>
+    </div>
+    <div class="card">
+      <h3>Emotional Control</h3>
+      <p>Stay calm and confident under pressure.</p>
+    </div>
+    <div class="card">
+      <h3>Peak Performance</h3>
+      <p>Habits used by top software professionals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEET THE SPEAKER -->
+<section class="reveal">
+  <div class="section-title">Meet the Speaker</div>
+
+  <div class="speaker">
+    <img
+      src="https://via.placeholder.com/400x450?text=Speaker+Photo"
+      alt="Mr. Mohan Suri"
+    >
+
+    <div class="card">
+      <h3>Mr. Mohan Suri</h3>
+      <p><strong>Senior Software Engineer (Tech Lead) – Microsoft</strong></p>
+
+      <ul style="margin-top:15px; padding-left:20px; line-height:1.6;">
+        <li>B.E (Hons) from BITS Pilani</li>
+        <li>11+ years of experience in the software industry</li>
+        <li>Previously worked at Qualcomm and Cisco</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- EVENT DETAILS -->
+<section class="reveal">
+  <div class="section-title">Event Details</div>
+
+  <div class="details-grid">
+    <div class="detail-box">
+      <h4>📅 Date & Time</h4>
+      <p>24 January 2026<br>11:00 AM TO 12.30PM</p>
+    </div>
+    <div class="detail-box">
+      <h4>📍 Venue</h4>
+      <p>SAC, IIIT Nuzvid</p>
+    </div>
+    <div class="detail-box">
+      <h4>🎓 Audience</h4>
+      <p>All College Students</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="reveal">
+  <div class="section-title">Contact</div>
+
+  <div class="contact">
+    📞 +91 9703416806<br>
+    ✉️ folk@hkmgokulakshetram.org
+  </div>
+
+  <div class="trademark">
+    © 2026 Art of Mind Control™ • All Rights Reserved
+  </div>
+</section>
+
+<!-- WHATSAPP -->
+<a
+  href="https://wa.me/919703416806?text=Hello%2C%20I%20am%20interested%20in%20the%20Art%20of%20Mind%20Control%20event."
+  class="whatsapp-float"
+  target="_blank">
+  💬
+</a>
+
+<!-- SCRIPTS -->
+<script>
+/* TIMER */
+const eventDate = new Date("2026-01-24T11:30:00").getTime();
+const timer = document.getElementById("timer");
+
+setInterval(()=>{
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+
+  if(diff <= 0){
+    timer.innerHTML = "🚀 Event is Live!";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  timer.innerHTML = `⏳ ${d}d ${h}h ${m}m ${s}s`;
+},1000);
+
+/* SCROLL ANIMATION */
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+});
+</script>
+
+</body>
+</html>
